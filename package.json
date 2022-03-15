@@ -26,10 +26,15 @@
   "dependencies": {
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
+    "@react-three/cannon": "^5.0.1",
+    "@react-three/drei": "^8.16.5",
+    "@react-three/fiber": "^7.0.26",
+    "@types/three": "^0.138.0",
     "axios": "0.24.0",
     "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "three": "^0.138.3",
     "tslib": "2.3.1",
     "zustand": "3.6.9"
   },
