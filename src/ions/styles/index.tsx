@@ -11,10 +11,12 @@ export const globalStyle = (
 			}
 
 			html {
+				height: 100%;
 				font-size: 16px;
 			}
 
 			body {
+				height: 100%;
 				margin: 0;
 				font-size: 1rem;
 			}
