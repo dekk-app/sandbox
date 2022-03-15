@@ -1,6 +1,6 @@
 {
-  "name": "next-app",
-  "description": "Next.js template",
+  "name": "sandbox",
+  "description": "R3F sandbox",
   "private": true,
   "license": "MIT",
   "scripts": {
