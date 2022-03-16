@@ -1,8 +1,8 @@
 import { Text, useGLTF } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { NextPage } from "next";
-import React from "react";
-import { BufferGeometry, Material } from "three";
+import React, { useRef } from "react";
+import { BufferGeometry, Group, Material } from "three";
 
 interface FixIt {
 	nodes: Record<string, { geometry: BufferGeometry; material: Material }>;
@@ -10,11 +10,16 @@ interface FixIt {
 }
 
 const Model = props => {
+	const ref = useRef<Group>();
 	const { nodes, materials } = useGLTF(
 		"https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/ice-cream-truck/model.gltf"
 	) as unknown as FixIt;
+	useFrame(({ clock }) => {
+		const time = clock.getElapsedTime();
+		ref.current.rotation.y = time / 4;
+	});
 	return (
-		<group {...props} dispose={null}>
+		<group ref={ref} {...props} dispose={null}>
 			<mesh
 				geometry={nodes.Ice_Cream_Truck.geometry}
 				material={materials["Ice Cream Truck Material"]}
