@@ -111,10 +111,9 @@ useGLTF.preload(
 const Page: NextPage = () => {
 	return (
 		<Canvas>
-			<color attach="background" args={["hsl(0, 0%, 100%)"]} />
+			<color attach="background" args={["hsl(220, 50%, 50%)"]} />
 			<ambientLight />
 			<pointLight position={[0, 10, 10]} />
-			<color attach="background" args={["hsl(220, 50%, 50%)"]} />
 			<OrbitControls />
 			<Model />
 		</Canvas>
