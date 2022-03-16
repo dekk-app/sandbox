@@ -1,7 +1,7 @@
 import { Text, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { NextPage } from "next";
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { BufferGeometry, Group, Material } from "three";
 
 interface FixIt {
@@ -39,27 +39,29 @@ const Page: NextPage = () => {
 			<color attach="background" args={["#06c"]} />
 			<ambientLight intensity={0.1} />
 			<pointLight position={[0, 50, 10]} intensity={4} />
-			<Model position={[-3, -1, 0]} />
-			<Text
-				position={[3, 2, 0]}
-				color="#fff"
-				anchorX="center"
-				anchorY="middle"
-				maxWidth={6}
-				fontSize={1.5}
-			>
-				Icecream
-			</Text>
-			<Text
-				position={[3, -1, 0]}
-				color="#fff"
-				anchorX="center"
-				anchorY="middle"
-				maxWidth={6}
-				fontSize={0.75}
-			>
-				I scream, you scream, we all scream for icecream
-			</Text>
+			<Suspense fallback={null}>
+				<Model position={[-3, -1, 0]} />
+				<Text
+					position={[3, 2, 0]}
+					color="#fff"
+					anchorX="center"
+					anchorY="middle"
+					maxWidth={6}
+					fontSize={1.5}
+				>
+					Icecream
+				</Text>
+				<Text
+					position={[3, -1, 0]}
+					color="#fff"
+					anchorX="center"
+					anchorY="middle"
+					maxWidth={6}
+					fontSize={0.75}
+				>
+					I scream, you scream, we all scream for icecream
+				</Text>
+			</Suspense>
 		</Canvas>
 	);
 };

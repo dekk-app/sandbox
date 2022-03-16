@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Color, Depth, LayerMaterial, Noise } from "lamina/vanilla";
 import { NextPage } from "next";
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { BufferGeometry, Group, Material, Mesh } from "three";
 import * as THREE from "three";
 
@@ -115,7 +115,9 @@ const Page: NextPage = () => {
 			<ambientLight />
 			<pointLight position={[0, 10, 10]} />
 			<OrbitControls />
-			<Model />
+			<Suspense fallback={null}>
+				<Model />
+			</Suspense>
 		</Canvas>
 	);
 };
